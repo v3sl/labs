@@ -56,10 +56,10 @@ RM = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Sasha\Desktop\24.02.2022
+CMAKE_SOURCE_DIR = D:\proga\24.02.2022
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Sasha\Desktop\24.02.2022\build
+CMAKE_BINARY_DIR = D:\proga\24.02.2022\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\Sasha\Desktop\24.02.2022\build
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/Sasha/Desktop/24.02.2022/build/CPackSourceConfig.cmake
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake D:/proga/24.02.2022/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -114,11 +114,56 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Sasha\Desktop\24.02.2022\build\CMakeFiles C:\Users\Sasha\Desktop\24.02.2022\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\proga\24.02.2022\build\CMakeFiles D:\proga\24.02.2022\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Sasha\Desktop\24.02.2022\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\proga\24.02.2022\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -510,24 +555,89 @@ ContinuousCoverage/fast:
 .PHONY : ContinuousCoverage/fast
 
 #=============================================================================
-# Target rules for targets named 24.02.2022
+# Target rules for targets named lab
 
 # Build rule for target.
-24.02.2022: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 24.02.2022
-.PHONY : 24.02.2022
+lab: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab
+.PHONY : lab
 
 # fast build rule for target.
-24.02.2022/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\24.02.2022.dir\build.make CMakeFiles/24.02.2022.dir/build
-.PHONY : 24.02.2022/fast
+lab/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab.dir\build.make CMakeFiles/lab.dir/build
+.PHONY : lab/fast
+
+#=============================================================================
+# Target rules for targets named googletest
+
+# Build rule for target.
+googletest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 googletest
+.PHONY : googletest
+
+# fast build rule for target.
+googletest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\googletest.dir\build.make CMakeFiles/googletest.dir/build
+.PHONY : googletest/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock_main.dir\build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googlemock\CMakeFiles\gmock.dir\build.make googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest.dir\build.make googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f googletest\googletest\CMakeFiles\gtest_main.dir\build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\24.02.2022.dir\build.make CMakeFiles/24.02.2022.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab.dir\build.make CMakeFiles/lab.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -535,7 +645,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\24.02.2022.dir\build.make CMakeFiles/24.02.2022.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab.dir\build.make CMakeFiles/lab.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -543,8 +653,32 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\24.02.2022.dir\build.make CMakeFiles/24.02.2022.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab.dir\build.make CMakeFiles/lab.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+tests.obj: tests.cpp.obj
+.PHONY : tests.obj
+
+# target to build an object file
+tests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\googletest.dir\build.make CMakeFiles/googletest.dir/tests.cpp.obj
+.PHONY : tests.cpp.obj
+
+tests.i: tests.cpp.i
+.PHONY : tests.i
+
+# target to preprocess a source file
+tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\googletest.dir\build.make CMakeFiles/googletest.dir/tests.cpp.i
+.PHONY : tests.cpp.i
+
+tests.s: tests.cpp.s
+.PHONY : tests.s
+
+# target to generate assembly for a file
+tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\googletest.dir\build.make CMakeFiles/googletest.dir/tests.cpp.s
+.PHONY : tests.cpp.s
 
 # Help Target
 help:
@@ -553,6 +687,10 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
 	@echo ... package
 	@echo ... package_source
 	@echo ... rebuild_cache
@@ -585,10 +723,18 @@ help:
 	@echo ... NightlySubmit
 	@echo ... NightlyTest
 	@echo ... NightlyUpdate
-	@echo ... 24.02.2022
+	@echo ... gmock
+	@echo ... gmock_main
+	@echo ... googletest
+	@echo ... gtest
+	@echo ... gtest_main
+	@echo ... lab
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... tests.obj
+	@echo ... tests.i
+	@echo ... tests.s
 .PHONY : help
 
 

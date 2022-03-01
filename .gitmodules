@@ -1,0 +1,9 @@
+[submodule "googletest"]
+	path = googletest
+	url = https://github.com/google/googletest
+[submodule "24.02.2022/labs"]
+	path = 24.02.2022/labs
+	url = https://github.com/v3sl/labs
+[submodule "24.02.2022/googletest"]
+	path = 24.02.2022/googletest
+	url = https://github.com/google/googletest

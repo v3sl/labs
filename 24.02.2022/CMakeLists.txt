@@ -1,11 +1,21 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(24.02.2022 VERSION 0.1.0)
+project(lab VERSION 0.1.0)
+
+set(CMAKE_CXX_STANDARD 17)
 
 include(CTest)
 enable_testing()
 
-add_executable(24.02.2022 main.cpp list.h stack.h task6.h sortedList.h)
+add_executable(lab main.cpp list.h sortedList.h stack.h task6.h)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+
+
+cmake_minimum_required(VERSION 3.0.0)
+project(tests) 
+add_subdirectory(googletest) 
+include_directories(googletest/include) 
+add_executable(googletest tests.cpp list.h sortedList.h stack.h task6.h) 
+target_link_libraries(googletest PRIVATE gtest) 

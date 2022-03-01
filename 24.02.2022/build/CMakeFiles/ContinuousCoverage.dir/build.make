@@ -52,10 +52,10 @@ RM = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Sasha\Desktop\24.02.2022
+CMAKE_SOURCE_DIR = D:\proga\24.02.2022
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Sasha\Desktop\24.02.2022\build
+CMAKE_BINARY_DIR = D:\proga\24.02.2022\build
 
 # Utility rule file for ContinuousCoverage.
 
@@ -81,6 +81,6 @@ CMakeFiles/ContinuousCoverage.dir/clean:
 .PHONY : CMakeFiles/ContinuousCoverage.dir/clean
 
 CMakeFiles/ContinuousCoverage.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Sasha\Desktop\24.02.2022 C:\Users\Sasha\Desktop\24.02.2022 C:\Users\Sasha\Desktop\24.02.2022\build C:\Users\Sasha\Desktop\24.02.2022\build C:\Users\Sasha\Desktop\24.02.2022\build\CMakeFiles\ContinuousCoverage.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\proga\24.02.2022 D:\proga\24.02.2022 D:\proga\24.02.2022\build D:\proga\24.02.2022\build D:\proga\24.02.2022\build\CMakeFiles\ContinuousCoverage.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousCoverage.dir/depend
 
