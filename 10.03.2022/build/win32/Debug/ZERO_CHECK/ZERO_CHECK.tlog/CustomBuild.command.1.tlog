@@ -1,0 +1,10 @@
+^D:\PROGA\10.03.2022\BUILD\CMAKEFILES\2DE90DF23D08A4763A6571168AC9ABDF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/proga/10.03.2022 -BD:/proga/10.03.2022/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/proga/10.03.2022/build/11.03.2022.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

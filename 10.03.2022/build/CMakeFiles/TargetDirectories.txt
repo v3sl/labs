@@ -1,0 +1,9 @@
+D:/proga/10.03.2022/build/CMakeFiles/NightlyMemoryCheck.dir
+D:/proga/10.03.2022/build/CMakeFiles/Experimental.dir
+D:/proga/10.03.2022/build/CMakeFiles/Continuous.dir
+D:/proga/10.03.2022/build/CMakeFiles/Nightly.dir
+D:/proga/10.03.2022/build/CMakeFiles/11.03.2022.dir
+D:/proga/10.03.2022/build/CMakeFiles/PACKAGE.dir
+D:/proga/10.03.2022/build/CMakeFiles/RUN_TESTS.dir
+D:/proga/10.03.2022/build/CMakeFiles/ALL_BUILD.dir
+D:/proga/10.03.2022/build/CMakeFiles/ZERO_CHECK.dir
