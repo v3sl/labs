@@ -61,6 +61,19 @@ void task3(){
     int right = 7;
     int result;
     int b = 5;
+    while (right - left > 1){
+        int middle = (right + left) / 2;
+        if (a[middle] >= b)
+            right = middle;
+        else
+            left = middle;
+    }
+    if (a[right] == b)
+        result = right + 1;
+    std::cout << "c++ code " << result << std::endl;
+    left = -1;
+    right = 7;
+    result = 0;
     _asm{
         mov ebx, right                  ;ebx <- right
         sub ebx, left                   ;ebx -= left
@@ -96,22 +109,42 @@ void task3(){
             neg result                  ; result *= -1
         end5:
     }
-    std::cout <<  result << std::endl;
+    std::cout << "asm code " << result << std::endl;
 
 }
 void task4(){
-    int a[] = {1,2,3,3,7,8,8,8,9,10};
+    int a[] = {1,2,3,3,7,7,7,8,9,10};
     int first = 0; 
     int defaultLength = 1;
-    int lenght = 0;
+    int newLength = 0;
+    int i = 0;
+    while(i < 10){
+        newLength = 0;
+        if (a[i] == a[i + 1]){
+            first = i+1;
+            int j = i;
+            while (a[j] == a[i]){
+                ++newLength;
+                ++j;
+            }
+            i = j-1;
+            if (newLength > defaultLength )
+                defaultLength = newLength;
+        }
+        ++i;
+    }
+    std::cout << "c++ code " <<"first " << first << " length " << defaultLength << std::endl;
+    first = 0; 
+    defaultLength = 1;
+    newLength = 0;
     _asm{
         mov ecx, 0                  ; ecx <- 0
     beg1:
         cmp ecx, 10                 ; while ecx < 10
-        jge end1                
+        jge end1       
+            mov newLength, 0        ; newLength <- 0
             mov eax, a[ecx*4]       ; eax <- a[i]
             mov ebx, a[ecx*4 + 4]   ; ebx <- a[i+1]
-            mov lenght, 0           ; lenght <- 1
             cmp eax, ebx            ; if eax == ebx 
             jne jne1                
                 mov first, ecx      ; first <- ecx
@@ -121,13 +154,14 @@ void task4(){
             mov eax, a[ebx*4]       ; eax <- a[j]
             cmp eax, a[ecx*4]       ; while a[j] == a[i]
             jne end2            
-                inc lenght          ; ++lenght
+                inc newLength       ; ++newLength
                 inc ebx             ; ++ebx
                 jmp beg2   
         end2:
             mov ecx, ebx            ; ecx <- ebx
-            mov ebx, lenght         ; ebx <- lenght
-            cmp ebx, defaultLength  ; if lenght > defaultLength
+            dec ecx                 ; --ecx
+            mov ebx, newLength      ; ebx <- newLength
+            cmp ebx, defaultLength  ; if length > defaultLength
                     jle jle1    
                     mov defaultLength, ebx    ; defaultLength <- ebx
                     jle1:       
@@ -136,17 +170,44 @@ void task4(){
             jmp beg1
         end1:
     }
-    std::cout << "first: " << first << " length: " << defaultLength << std::endl;
+    std::cout <<"asm code " << "first " << first << " length " << defaultLength << std::endl;
 }
 void task5(){
-    int a[] = {1,1,1,1,1,1,1,2,2,3,4,4,4,4,4,5,5,5,5,6,6};
+    int a[] = {1,1,1,2,3,4,4,5,6};
     int newA[6];
     int flag = 1;
+    int b = 0;
+    int i = 0;
+    while(i < 9){
+        flag = 1;
+        int j = 0;
+        while (j <= b){
+            if (b == 0){
+                newA[b++] = a[i];
+                flag = 0;
+                break;
+            }
+            if (a[i] == newA[j]){
+                flag = 0 ;
+                break;
+            }
+            ++j;
+        }
+        if (flag)
+            newA[b++] = a[i];
+        ++i;
+    }
+    std::cout << "c++ code ";
+    for(int i = 0 ; i < 6; ++i)
+        std::cout << newA[i] << ' ';
+    flag = 1;
+    b = 0;
+    int newB[6];
     _asm{
         mov ecx, 0                             ; ecx <- 0
         mov eax, 0                             ; eax <- 0
     beg1:
-        cmp ecx, 21                           ; while ecx < 10
+        cmp ecx, 9                           ; while ecx < size
         jge end1                               
             mov flag, 1                        ; flag <- 1
             mov ebx, 0                         ; ebx <- 0      
@@ -156,12 +217,12 @@ void task5(){
                     mov edx, a[ecx*4]          ; edx <- a[i]
                     cmp eax, 0                 ; if b == 0 
                     jne jne1                   
-                        mov newA[eax*4], edx   ; newA[0] = edx
+                        mov newB[eax*4], edx   ; newA[0] = edx
                         inc eax                ; ++eax
                         mov flag,0             ; flag <- 0
                         jmp end2               ; break
                     jne1:                      
-                    cmp edx, newA[ebx*4]       ; if edx == newA[j]
+                    cmp edx, newB[ebx*4]       ; if edx == newA[j]
                     jne jne2
                         mov flag,0             ; flag <- 0
                         jmp end2               ; break
@@ -171,16 +232,16 @@ void task5(){
             end2:
                 cmp flag,1                     ; if flag == 1
                 jne jne3
-                    mov newA[eax*4], edx       ; newA[eax] <- edx
+                    mov newB[eax*4], edx       ; newA[eax] <- edx
                 inc eax                        ; ++eax
                 jne3:
                     inc ecx                    ; ++ecx
                     jmp beg1
     end1:
     }
-    for(int i =0 ; i < 6; ++i){
-        std::cout << newA[i];
-    }
+    std::cout << "asm code ";
+    for(int i =0 ; i < 6; ++i)
+        std::cout << newB[i] << ' ';
 }
 
 int main(){
