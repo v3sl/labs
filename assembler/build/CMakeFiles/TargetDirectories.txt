@@ -1,0 +1,9 @@
+D:/proga/assebler/build/CMakeFiles/NightlyMemoryCheck.dir
+D:/proga/assebler/build/CMakeFiles/Experimental.dir
+D:/proga/assebler/build/CMakeFiles/Continuous.dir
+D:/proga/assebler/build/CMakeFiles/Nightly.dir
+D:/proga/assebler/build/CMakeFiles/RUN_TESTS.dir
+D:/proga/assebler/build/CMakeFiles/testAsm.dir
+D:/proga/assebler/build/CMakeFiles/PACKAGE.dir
+D:/proga/assebler/build/CMakeFiles/ALL_BUILD.dir
+D:/proga/assebler/build/CMakeFiles/ZERO_CHECK.dir

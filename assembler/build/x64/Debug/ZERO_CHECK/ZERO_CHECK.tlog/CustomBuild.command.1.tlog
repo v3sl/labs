@@ -1,0 +1,10 @@
+^D:\PROGA\ASSEBLER\BUILD\CMAKEFILES\50D1DEAD0D57B259B600C5F69C4C0213\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/proga/assebler -BD:/proga/assebler/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/proga/assebler/build/testAsm.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
