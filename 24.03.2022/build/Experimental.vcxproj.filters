@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\proga\24.03.2022\build\CMakeFiles\1678c5ce8ee0866381ac1cbc31c63186\Experimental.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\proga\24.03.2022\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\proga\24.03.2022\build\CMakeFiles\Experimental" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{53C8CC9B-8BF4-3398-AFA4-BF5E3B4CC71C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
